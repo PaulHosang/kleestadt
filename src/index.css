@@ -1,0 +1,30 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #272730;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Inter var", sans-serif;
+  font-size: 14px;
+  color: white;
+  background: #f0f0f0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+}
