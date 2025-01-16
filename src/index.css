@@ -8,15 +8,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #272730;
+  background: #0c160b;
   overflow: hidden;
+  color: rgb(161, 161, 161);
 }
 
 body {
   font-family: "Inter var", sans-serif;
   font-size: 14px;
-  color: white;
-  background: #f0f0f0;
+  background: black;
 }
 
 #root {
@@ -27,4 +27,9 @@ body {
 
 canvas {
   position: absolute;
+}
+
+#slide {
+  position: absolute;
+  border-left: 1px solid rgb(31, 31, 31);
 }

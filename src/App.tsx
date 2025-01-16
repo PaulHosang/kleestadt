@@ -13,7 +13,7 @@ function App() {
             height: "90vh",
             position: "absolute",
             top: 0,
-            borderBottom: "1px solid black",
+            borderBottom: "1px solid rgb(31, 31, 31)",
           }}
           shadows="basic"
           eventSource={document.getElementById("root")!}
@@ -33,6 +33,7 @@ function App() {
           <CameraControls />
         </Canvas>
       </Sidebar>
+      <h1>Test</h1>
     </main>
   );
 }
