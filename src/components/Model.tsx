@@ -1,5 +1,4 @@
 import { useGLTF } from "@react-three/drei";
-import { useState } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 
@@ -14,14 +13,8 @@ type GLTFResult = GLTF & {
 
 export function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/kleestadt.glb") as GLTFResult;
-  const [isHovering, setIsHovering] = useState(false);
   return (
-    <group
-      {...props}
-      dispose={null}
-      onPointerOver={(event) => (event.stopPropagation(), setIsHovering(true))}
-      onPointerOut={(event) => setIsHovering(false)}
-    >
+    <group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow

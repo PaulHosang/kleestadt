@@ -1,15 +1,7 @@
-import {
-  CameraControls,
-  Environment,
-  Html,
-  OrbitControls,
-  Text,
-} from "@react-three/drei";
-import { Canvas, MeshProps, useFrame } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
-import { Mesh } from "three";
-import { Model } from "./components/Model";
+import { CameraControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { Marker } from "./components/Marker";
+import { Model } from "./components/Model";
 import { Sidebar } from "./components/Sidebar";
 
 function App() {
