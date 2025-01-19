@@ -12,7 +12,16 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         foregroundDimmed: "var(--foreground-dimmed)",
+        backgroundSecondary: "var(--background-secondary)",
       },
+      animation: {
+        'border': 'border 4s linear infinite',
+      },
+      keyframes: {
+          'border': {
+              to: { '--border-angle': '360deg' },
+          }
+      }      
     },
   },
   plugins: [],

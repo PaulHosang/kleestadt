@@ -1,5 +1,5 @@
 import { appState$ } from "@/lib/store";
-import { X } from "lucide-react";
+import { Info, Move, Rotate3d, ScanSearch, X } from "lucide-react";
 import { PropsWithChildren } from "react";
 import { use$ } from "@legendapp/state/react";
 import Link from "next/link";
@@ -41,8 +41,39 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
           him with a problem: the kingdom was running out of money.
         </p>
       </div>
-      <div className="h-[90vh]">{children}</div>
-      <div className="w-full  bg-black flex items-center justify-center gap-4 h-[10vh]">
+      <div className="h-[90vh] relative">
+        <div className="absolute p-5 bottom-0 right-0 z-[8888]">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Rotate3d />
+              <p>
+                <span className="font-bold">Drehen:</span> Linksklicken & ziehen
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Move />
+              <p>
+                <span className="font-bold">Bewegen:</span> Rechtsklicken &
+                ziehen
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <ScanSearch />
+              <p>
+                <span className="font-bold">Zoom:</span> Mausrad verwenden
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Info />
+              <p>
+                <span className="font-bold">Details:</span> Auf Marker klicken
+              </p>
+            </div>
+          </div>
+        </div>
+        {children}
+      </div>
+      <div className="w-full bg-backgroundSecondary flex items-center justify-center gap-4 h-[10vh]">
         <Link
           href={"legal/imprint"}
           className="text-foregroundDimmed text-[16px]"
