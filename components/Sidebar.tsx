@@ -7,6 +7,7 @@ import wappen from "@/public/wappen.svg";
 
 export const Wrapper = ({ children }: PropsWithChildren) => {
   const isOpen = use$(appState$.isSidebarOpen);
+  const showControlsPopup = use$(appState$.showControlsPopup);
   return (
     <div className="w-screen h-screen overflow-hidden">
       <div className="absolute top-0 left-0 z-[9999] p-5">
@@ -42,35 +43,52 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
         </p>
       </div>
       <div className="h-[90vh] relative">
-        <div className="absolute p-5 bottom-0 right-0 z-[8888]">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Rotate3d />
-              <p>
-                <span className="font-bold">Drehen:</span> Linksklicken & ziehen
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <Move />
-              <p>
-                <span className="font-bold">Bewegen:</span> Rechtsklicken &
-                ziehen
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <ScanSearch />
-              <p>
-                <span className="font-bold">Zoom:</span> Mausrad verwenden
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <Info />
-              <p>
-                <span className="font-bold">Details:</span> Auf Marker klicken
-              </p>
+        {showControlsPopup && (
+          <div className="absolute p-5 bottom-[13px] rounded-md border-border border right-[10px] z-[8888] bg-backgroundSecondary ">
+            <X
+              size={18}
+              className="cursor-pointer absolute top-2 right-2 stroke-foregroundDimmed"
+              onClick={() => appState$.showControlsPopup.set(false)}
+            />
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Rotate3d />
+                <p>
+                  <span className="font-bold">Drehen:</span> Linksklicken &
+                  ziehen
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Move />
+                <p>
+                  <span className="font-bold">Bewegen:</span> Rechtsklicken &
+                  ziehen
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <ScanSearch />
+                <p>
+                  <span className="font-bold">Zoom:</span> Mausrad verwenden
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Info />
+                <p>
+                  <span className="font-bold">Details:</span> Auf Marker klicken
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+        {!showControlsPopup && (
+          <div className="absolute p-2 bottom-[13px] rounded-md border-border border right-[10px] z-[8888] bg-backgroundSecondary">
+            <Info
+              size={18}
+              className="cursor-pointer stroke-foregroundDimmed hover:stroke-foreground"
+              onClick={() => appState$.showControlsPopup.set(true)}
+            />
+          </div>
+        )}
         {children}
       </div>
       <div className="w-full bg-backgroundSecondary flex items-center justify-center gap-4 h-[10vh]">

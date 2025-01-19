@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         foregroundDimmed: "var(--foreground-dimmed)",
         backgroundSecondary: "var(--background-secondary)",
+        border: "var(--border)",
       },
       animation: {
         'border': 'border 4s linear infinite',
