@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import { GLTF } from "three-stdlib";
+import { GLTF } from "three/examples/jsm/Addons.js";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -11,10 +11,10 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Model(props: JSX.IntrinsicElements["group"]) {
+export function Model() {
   const { nodes, materials } = useGLTF("/kleestadt.glb") as GLTFResult;
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <mesh
         castShadow
         receiveShadow
