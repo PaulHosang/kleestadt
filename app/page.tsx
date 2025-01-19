@@ -1,14 +1,15 @@
 "use client";
 import { Marker } from "@/components/Marker";
 import { Model } from "@/components/Model";
-import { Sidebar } from "@/components/Sidebar";
-import { CameraControls } from "@react-three/drei";
+import { Wrapper } from "@/components/Sidebar";
+import { CameraControls, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <main className="w-screen h-screen">
-      <Sidebar>
+      <Wrapper>
         <Canvas
           style={{
             height: "90vh",
@@ -17,16 +18,24 @@ export default function Home() {
             borderBottom: "1px solid rgb(31, 31, 31)",
           }}
           shadows="basic"
-          eventSource={document.getElementById("root")!}
+          // eventSource={document.getElementById("root")!}
           eventPrefix="client"
         >
           <ambientLight intensity={Math.PI / 2} />
-          <Model />
-          <Marker />
+          <Suspense
+            fallback={
+              <Html>
+                <h1>Loading..</h1>
+              </Html>
+            }
+          >
+            <Model />
+            <Marker />
+          </Suspense>
+
           <CameraControls />
         </Canvas>
-      </Sidebar>
-      <h1>Test</h1>
+      </Wrapper>
     </main>
   );
 }

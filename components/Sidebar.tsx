@@ -2,11 +2,16 @@ import { appState$ } from "@/lib/store";
 import { X } from "lucide-react";
 import { PropsWithChildren } from "react";
 import { use$ } from "@legendapp/state/react";
+import Link from "next/link";
+import wappen from "@/public/wappen.svg";
 
-export const Sidebar = ({ children }: PropsWithChildren) => {
+export const Wrapper = ({ children }: PropsWithChildren) => {
   const isOpen = use$(appState$.isSidebarOpen);
   return (
     <div className="w-screen h-screen overflow-hidden">
+      <div className="absolute top-0 left-0 z-[9999] p-5">
+        <img src={wappen.src} alt="wappen" className="w-20" />
+      </div>
       <div
         className={`absolute md:w-[40%] lg:w-[30%] w-screen z-[9999] h-[100vh] bg-black p-5 ${
           isOpen ? "right-0" : "-right-full"
@@ -24,14 +29,33 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             <X />
           </div>
         </div>
-        <p className="leading-7 [&:not(:first-child)]:mt-6 text-[16px]">
+        <div>
+          <img src="restaurant.jpg" className="rounded-md mt-4" alt="" />
+          <p className="text-foregroundDimmed text-[12px] text-right mt-[2px] font-[400]">
+            Source: Max Mustermann
+          </p>
+        </div>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 text-[16px] text-foregroundDimmed font-[400]">
           Once upon a time, in a far-off land, there was a very lazy king who
           spent all day lounging on his throne. One day, his advisors came to
           him with a problem: the kingdom was running out of money.
         </p>
       </div>
-
-      {children}
+      <div className="h-[90vh]">{children}</div>
+      <div className="w-full  bg-black flex items-center justify-center gap-4 h-[10vh]">
+        <Link
+          href={"legal/imprint"}
+          className="text-foregroundDimmed text-[16px]"
+        >
+          Impressum
+        </Link>
+        <Link
+          href={"legal/privacy"}
+          className="text-foregroundDimmed text-[16px] font-[400]"
+        >
+          Datenschutzerklärung
+        </Link>
+      </div>
     </div>
   );
 };
