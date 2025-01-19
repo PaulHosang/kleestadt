@@ -1,6 +1,6 @@
+import { appState$ } from "@/lib/store";
 import { Html } from "@react-three/drei";
 import { Ham } from "lucide-react";
-import { appState$ } from "../lib/store";
 
 export const Marker = () => {
   return (

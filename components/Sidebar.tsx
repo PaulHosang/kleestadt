@@ -1,7 +1,7 @@
-import { use$ } from "@legendapp/state/react";
+import { appState$ } from "@/lib/store";
 import { X } from "lucide-react";
 import { PropsWithChildren } from "react";
-import { appState$ } from "../lib/store";
+import { use$ } from "@legendapp/state/react";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   const isOpen = use$(appState$.isSidebarOpen);
