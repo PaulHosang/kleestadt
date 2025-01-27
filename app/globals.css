@@ -5,19 +5,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-dimmed: #878787;
+  --background-secondary: #0a0a0a;
+  --border: #1f1f1f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --foreground-dimmed: #878787;
+    --border: #1f1f1f;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);  
+  font-size: 14px;
+  font-family: "Geist", sans-serif;
+  background: black;
 }
 
 html,
@@ -25,12 +32,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-}
-
-body {
-  font-family: "Inter var", sans-serif;
-  font-size: 14px;
-  background: black;
 }
 
 #root {
@@ -46,4 +47,10 @@ canvas {
 #slide {
   position: absolute;
   border-left: 1px solid rgb(31, 31, 31);
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }

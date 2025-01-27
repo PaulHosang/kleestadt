@@ -12,7 +12,9 @@ type GLTFResult = GLTF & {
 };
 
 export function Model() {
-  const { nodes, materials } = useGLTF("/kleestadt.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF(
+    "/kleestadt.glb"
+  ) as unknown as GLTFResult;
   return (
     <group dispose={null}>
       <mesh

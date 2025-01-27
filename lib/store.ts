@@ -14,10 +14,12 @@ interface AppState {
   isSidebarOpen: boolean;
   selectedAttraction: Attraction | null;
   attractions: Attraction[];
+  showControlsPopup: boolean;
 }
 
 export const appState$ = observable<AppState>({
   attractions: [],
   isSidebarOpen: false,
   selectedAttraction: null,
+  showControlsPopup: true,
 });
