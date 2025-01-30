@@ -9,10 +9,11 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
   const isOpen = use$(appState$.isSidebarOpen);
   const showControlsPopup = use$(appState$.showControlsPopup);
   const selectedAttraction = use$(appState$.selectedAttraction);
+
   return (
     <div className="w-screen h-screen overflow-hidden">
       <div className="absolute top-0 left-0 z-[9999] p-5">
-        <img src={wappen.src} alt="wappen" className="w-[200px]" />
+        <img src={wappen.src} alt="wappen" className="w-[150px] md:w-[200px]" />
       </div>
       <div
         className={`absolute md:w-[40%] lg:w-[30%] w-screen z-[9999] h-[100vh] bg-black p-5 ${
@@ -76,12 +77,15 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
           </div>
         )}
         {!showControlsPopup && (
-          <div className="absolute p-2 bottom-[13px] rounded-md border-border border right-[10px] z-[8888] bg-backgroundSecondary">
+          <div
+            className="absolute p-2 cursor-pointer bottom-[13px] rounded-md border-border border right-[10px] z-[8888] bg-backgroundSecondary flex flex-row items-center gap-2"
+            onClick={() => appState$.showControlsPopup.set(true)}
+          >
             <Info
               size={18}
-              className="cursor-pointer stroke-foregroundDimmed hover:stroke-foreground"
-              onClick={() => appState$.showControlsPopup.set(true)}
+              className=" stroke-foregroundDimmed hover:stroke-foreground"
             />
+            <p>Steuerung</p>
           </div>
         )}
         {children}
