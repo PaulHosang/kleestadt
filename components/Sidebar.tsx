@@ -22,7 +22,7 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
         id="slide"
       >
         <div className="flex items-center justify-between">
-          <h1 className="font-bold text-3xl text-white">
+          <h1 className="font-bold text-2xl lg:text-3xl text-white">
             {selectedAttraction?.name || "Objekt"}
           </h1>
           <div
