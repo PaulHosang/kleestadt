@@ -16,13 +16,13 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
         <img src={wappen.src} alt="wappen" className="w-[150px] md:w-[200px]" />
       </div>
       <div
-        className={`absolute md:w-[40%] lg:w-[30%] w-screen z-[9999] h-[100vh] bg-black p-5 ${
+        className={`absolute md:w-[40%] lg:w-[30%] w-screen z-[9999] h-[100vh] bg-black p-5 overflow-x-hidden overflow-y-auto ${
           isOpen ? "right-0" : "-right-full"
         } transition-all duration-300`}
         id="slide"
       >
         <div className="flex items-center justify-between">
-          <h1 className="font-bold text-4xl text-white">
+          <h1 className="font-bold text-3xl text-white">
             {selectedAttraction?.name || "Objekt"}
           </h1>
           <div
@@ -37,6 +37,18 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-[16px] text-foregroundDimmed font-[400]">
           {selectedAttraction?.description || "Wähle ein Objekt aus"}
         </p>
+        {selectedAttraction?.images && (
+          <div className="space-y-6 mt-6">
+            {selectedAttraction.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt="attraction"
+                className="w-full aspect-video object-cover rounded-md"
+              />
+            ))}
+          </div>
+        )}
       </div>
       <div className="h-[90vh] relative">
         {showControlsPopup && (

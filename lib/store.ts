@@ -5,6 +5,7 @@ interface Attraction {
   name: string;
   description: string;
   position: [number, number, number];
+  images?: string[];
 }
 
 interface AppState {
@@ -19,8 +20,14 @@ export const appState$ = observable<AppState>({
     {
       id: "1",
       name: "NABU & Obst/Gartenbau Verein",
-      description: "Der Naturschutzbund Kleestadt und der Obst und Gartenbauverein machen zum dritten Mal einen Stand zusammen auf unserem Kläschter Dorffest. Hier werden Backfisch, Kartoffelsalat und Getränke angeboten.",
-      position: [2, 1.5, -1.5],
+      description:
+        "Der Naturschutzbund Kleestadt und der Obst und Gartenbauverein machen zum dritten Mal einen Stand zusammen auf unserem Kläschter Dorffest. Hier werden Backfisch, Kartoffelsalat und Getränke angeboten.",
+      position: [1.9, 1.5, -2],
+      images: [
+        "./attractions/attraction_1_1.jpeg",
+        "./attractions/attraction_1_2.jpeg",
+        "./attractions/attraction_1_3.jpeg",
+      ],
     },
     {
       id: "2",
