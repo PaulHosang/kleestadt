@@ -12,7 +12,7 @@ export const Wrapper = ({ children }: PropsWithChildren) => {
   return (
     <div className="w-screen h-screen overflow-hidden">
       <div className="absolute top-0 left-0 z-[9999] p-5">
-        <img src={wappen.src} alt="wappen" className="w-20" />
+        <img src={wappen.src} alt="wappen" className="w-[200px]" />
       </div>
       <div
         className={`absolute md:w-[40%] lg:w-[30%] w-screen z-[9999] h-[100vh] bg-black p-5 ${
