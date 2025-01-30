@@ -4,10 +4,10 @@ import { GLTF } from "three/examples/jsm/Addons.js";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube001: THREE.Mesh;
+    Cube120: THREE.Mesh;
   };
   materials: {
-    ["Material.003"]: THREE.MeshStandardMaterial;
+    ["Procedural pearl white painted plastic"]: THREE.MeshPhysicalMaterial;
   };
 };
 
@@ -20,11 +20,10 @@ export function Model() {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cube001.geometry}
-        material={materials["Material.003"]}
-        position={[3.005, 0.647, -3.039]}
-        rotation={[0, -0.74, 0]}
-        scale={[0.219, 0.037, 0.101]}
+        geometry={nodes.Cube120.geometry}
+        material={materials["Procedural pearl white painted plastic"]}
+        position={[-3.266, 0.454, 1.978]}
+        rotation={[3.129, 0.83, -3.131]}
       />
     </group>
   );
