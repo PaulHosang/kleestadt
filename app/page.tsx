@@ -7,6 +7,7 @@ import { appState$ } from "@/lib/store";
 import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
+
 export default function Home() {
   const [position, setPosition] = useState({ x: 10, y: 10, z: 10 });
   const [target, setTarget] = useState({ x: 0, y: 0, z: 0 });
@@ -39,7 +40,7 @@ export default function Home() {
             position: [10, 10, 10],
           }}
           shadows="basic"
-          eventSource={document.getElementById("root")!}
+          //eventSource={document.getElementById("root")!}
           eventPrefix="client"
         >
           <ambientLight intensity={Math.PI / 2} />
