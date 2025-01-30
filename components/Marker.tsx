@@ -1,20 +1,52 @@
-import { appState$ } from "@/lib/store";
-import { Html } from "@react-three/drei";
-import { Ham } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import { Line } from "@react-three/drei";
+import { Vector3 } from "three";
+import * as THREE from "three";
 
-export const Marker = () => {
+interface MarkerWithLineProps {
+  position: [number, number, number];
+  onClick?: () => void;
+}
+
+export const MarkerWithLine: React.FC<MarkerWithLineProps> = ({
+  position,
+  onClick,
+}) => {
+  const markerRef = useRef<THREE.Mesh>(null);
+
+  const startPoint = new Vector3(...position);
+  const endPoint = new Vector3(position[0], 0.1, position[2]);
+
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  useEffect(() => {
+    if (isHovered) {
+      markerRef.current!.scale.set(1.2, 1.2, 1.2);
+    } else {
+      markerRef.current!.scale.set(1, 1, 1);
+    }
+  }, [isHovered]);
+
   return (
-    <mesh position={[2, 2.5, -1.5]}>
-      <Html distanceFactor={10} zIndexRange={[100, 0]}>
-        <div
-          className={`bg-black border-[#2e2e2e] p-2 rounded-md opacity-90 border-[1px] hover:opacity-100 cursor-pointer transition-opacity`}
-          onClick={() => {
-            appState$.isSidebarOpen.set(true);
-          }}
-        >
-          <Ham color="white" />
-        </div>
-      </Html>
-    </mesh>
+    <>
+      <mesh
+        ref={markerRef}
+        position={position}
+        receiveShadow
+        onClick={onClick}
+        onPointerOver={() => setIsHovered(true)}
+        onPointerOut={() => setIsHovered(false)}
+      >
+        <sphereGeometry args={[0.1, 16, 16]} />
+        <meshBasicMaterial color={"#ff8fab"} />
+      </mesh>
+
+      <Line
+        points={[startPoint, endPoint]}
+        color="#ff8fab"
+        lineWidth={1.5}
+        dashed={false}
+      />
+    </>
   );
 };
