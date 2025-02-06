@@ -31,15 +31,64 @@ export const appState$ = observable<AppState>({
     },
     {
       id: "2",
-      name: "Attraction 2",
-      description: "This is the second attraction",
-      position: [0, 1.5, 0],
+      name: "Feuerwehr Kleestadt",
+      description: "Biertheke",
+      position: [1.75, 1.5, -3],
     },
     {
       id: "3",
-      name: "Attraction 3",
-      description: "This is the third attraction",
-      position: [-2, 1.5, 1.5],
+      name: "La Dolce Vita Pizza",
+      description: "Angelo's Pizza",
+      position: [2.25, 1.5, -3.5],
+    },
+
+    {
+      id: "4",
+      name: "Bühne",
+      description: "Bühnenprogramm:",
+      position: [3.5, 1.5, -2],
+    },
+
+    {
+      id: "5",
+      name: "Kirche & Förderverein",
+      description: "Kaffee und Kuchen",
+      position: [1.5, 1.5, -0.75],
+    },
+
+    {
+      id: "6",
+      name: "Computer Clube Kleestadt",
+      description: "Crepes, Eis und Schnaps",
+      position: [0.5, 1.5, 0],
+    },
+
+    {
+      id: "7",
+      name: "Restaurant zum Lamm",
+      description: "Pommes und Bratwurst",
+      position: [-0.75, 1.5, 1],
+    },
+
+    {
+      id: "8",
+      name: "SV Kleestadt",
+      description: "Bier, Hütchen, Tabletts ",
+      position: [-1.4, 1.5, 1.5],
+    },
+
+    {
+      id: "9",
+      name: "Gymnastikverein Kleestadt",
+      description: "Äpperol und Gedöns",
+      position: [-1.5, 1.5, 1],
+    },
+
+    {
+      id: "9",
+      name: "Aphrodite Spezialitäten",
+      description: "Halloumi Sandwiches",
+      position: [-1, 1.5, 0.6],
     },
   ],
   isSidebarOpen: false,
